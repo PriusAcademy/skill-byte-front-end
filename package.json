@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://PriusAcademy.github.io/Prius-Academy",
+  "homepage": "https://PriusAcademy.github.io/Academy",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

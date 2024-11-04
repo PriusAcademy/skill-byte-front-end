@@ -1,62 +1,43 @@
-import { mission_text, vision_text } from "../constansts";
-import ContentBox from "./content-box";
+import { Check } from "lucide-react";
+import {
+  coreValuesPath,
+  coreValueText,
+  mission_text,
+  missionPath,
+  vision_text,
+  visionPath,
+} from "../constansts";
+import MediaCard from "../pages/about-us/components/about-us-media-card";
 
 const MissionVisionCoreValuesMain = () => {
   return (
-    <>
-      <ContentBox title="Mission" content={mission_text} />
-      <ContentBox title="Vision" content={vision_text} />
+    <div className="space-y-8">
+      <MediaCard src={missionPath} content={mission_text} title="Misison" />
+      <MediaCard src={visionPath} content={vision_text} title="Vision" />
       <div className="mt-8 space-y-3">
-        <h1 className="text-center text-activeBlue text-2xl font-semibold">
-          Core Values
-        </h1>
-        <div>
-          <p className="text-gray-600">
-            <span className="text-secondaryBlue font-semibold">Work: </span>
-            We put forward work opportunities.
-          </p>
-          <p className="text-gray-600">
-            <span className="text-secondaryBlue  font-semibold">
-              Employability:{" "}
-            </span>
-            We provide long-term careers by developing skills that allow our
-            people to be employable, today and tomorrow.
-          </p>
-          <p className="text-gray-600">
-            <span className="text-secondaryBlue  font-semibold">
-              Aspirations:{" "}
-            </span>
-            We understand our people’s aspirations and give them the right
-            direction towards achieving their goals.
-          </p>
-          <p className="text-gray-600">
-            <span className="text-secondaryBlue font-semibold">Values: </span>
-            We ensure that our people deliver value through value-oriented
-            behaviour.
-          </p>
-          <p className="text-gray-600">
-            <span className="text-secondaryBlue  font-semibold">
-              Integrity:{" "}
-            </span>
-            We make certain that integrity prevails at all levels under all
-            circumstances.
-          </p>
-          <p className="text-gray-600">
-            <span className="text-secondaryBlue font-semibold">Nurture: </span>
-            We care for and nurture our people, and that compassion is reflected
-            in all endeavours.
-          </p>
-          <p className="text-gray-600">
-            <span className="text-secondaryBlue font-semibold">
-              Sustainbility:{" "}
-            </span>
-            We believe in building sustainability for now, and for the future,
-            through a holistic process which is interconnected and
-            interdependent.
-          </p>
+        <div className="flex flex-col md:flex-row gap-6 items-center">
+          <img src={coreValuesPath} className="w-40 h-40 rounded-full" alt="" />
+          <div className="flex flex-col gap-y-3 justify-center">
+            <h2 className="text-secondaryBlue text-center md:text-start text-2xl font-semibold">
+              Core Values:
+            </h2>
+            {coreValueText.map((item, index) => (
+              <div key={index} className="flex gap-x-2">
+                <div>
+                  <Check className="text-activeBlue" />
+                </div>
+                <p className="text-gray-600">
+                  <span className="font-semibold text-gray-600">
+                    {item.title}
+                  </span>
+                  : {item.content}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

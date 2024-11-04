@@ -37,21 +37,24 @@ const DesktopNavBar = ({ data, links }: DesktopNavBarProps) => {
           key={links[0].href}
           title={links[0].title}
         />
+        <NavItemForDesktop
+          isActive={data[0].isActive}
+          key={data[0].title}
+          data={data[0].data}
+          title={data[0].title}
+        />
         <Link
           href={links[1].href}
           isActive={links[1].isActive}
           key={links[1].href}
           title={links[1].title}
         />
-
-        {data.map((navItem) => (
-          <NavItemForDesktop
-            isActive={navItem.isActive}
-            key={navItem.title}
-            data={navItem.data}
-            title={navItem.title}
-          />
-        ))}
+        <NavItemForDesktop
+          isActive={data[1].isActive}
+          key={data[1].title}
+          data={data[1].data}
+          title={data[1].title}
+        />
         {links.slice(2).map((link) => (
           <Link
             href={link.href}

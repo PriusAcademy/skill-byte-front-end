@@ -18,12 +18,28 @@ const ImageView: React.FunctionComponent<ImageViewProps> = ({
       {isActive && (
         <div
           data-aos="zoom-in-up"
-          className="font-semibold  text-xl absolute bottom-10 w-96 left-8"
+          className="font-semibold space-y-3 bottom-5 absolute xl:bottom-16 md:left-20  max-w-[60%] xl:left-32 left-10 "
         >
-          {text}
+          {/* <p className="text-white xl:text-6xl text-3xl font-bold">{text}</p> */}
+          <p className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-7xl  text-white xl:text-6xl font-bold">
+            {text}
+          </p>
+          <div className="flex gap-3">
+            <button className="cursor-pointer rounded-lg uppercase text-xs  sm:text-sm transition duration-150 px-2 sm:px-4 py-1 sm:py-2 text-white bg-activeBlue hover:bg-secondaryBlue">
+              Explore
+            </button>
+            <button className="cursor-pointer rounded-lg uppercase text-xs sm:text-sm transition duration-150 px-2 sm:px-4 py-1 sm:py-2 text-white hover:bg-activeBlue bg-transparent border ">
+              Get in touch
+            </button>
+          </div>
         </div>
       )}
-      <img className="h-[500px] lg:h-[700px] w-[1900px] " src={src} alt="" />
+      <img
+        // className="h-[300px] w-full lg:h-[600px] xl:h-[700px]  "
+        className=" h-60 sm:h-80 md:h-96 lg:h-[30rem] xl:h-[36rem] 2xl:h-[42rem] w-full bg-cover"
+        src={src}
+        alt=""
+      />
     </div>
   );
 };

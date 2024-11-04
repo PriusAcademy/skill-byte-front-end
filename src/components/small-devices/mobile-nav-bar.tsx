@@ -59,6 +59,15 @@ const MobileNavBar = ({ data, links }: MobileNavBarProps) => {
               key={links[0].href}
             />
             <div className="h-[1px] bg-gray-200 w-full" />
+
+            <NavDropDown
+              isActive={data[0].isActive}
+              key={data[0].title}
+              data={data[0].data}
+              title={data[0].title}
+            />
+            <div className="h-[1px] bg-gray-200 w-full" />
+
             <Link
               href={links[1].href}
               isActive={links[1].isActive}
@@ -66,17 +75,15 @@ const MobileNavBar = ({ data, links }: MobileNavBarProps) => {
               key={links[1].href}
             />
             <div className="h-[1px] bg-gray-200 w-full" />
-            {data.map((navItem) => (
-              <>
-                <NavDropDown
-                  isActive={navItem.isActive}
-                  key={navItem.title}
-                  data={navItem.data}
-                  title={navItem.title}
-                />
-                <div className="h-[1px] bg-gray-200 w-full" />
-              </>
-            ))}
+
+            <NavDropDown
+              isActive={data[1].isActive}
+              key={data[1].title}
+              data={data[1].data}
+              title={data[1].title}
+            />
+            <div className="h-[1px] bg-gray-200 w-full" />
+
             {links.slice(2).map((link) => (
               <>
                 <Link

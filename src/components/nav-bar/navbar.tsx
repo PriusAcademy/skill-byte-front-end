@@ -20,7 +20,7 @@ const Navbar = () => {
         <TextWithIcon
           aosAnimate="flip-right"
           href="mailto:HR@abcd.com"
-          title="HR@abcd.com"
+          title="HR@skill-byte.com"
           Icon={Mail}
         />
         <TextWithIcon

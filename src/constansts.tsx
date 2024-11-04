@@ -2,16 +2,31 @@ export const hoverColor = "#04a7ee";
 export const primaryColor = "#0c3a85";
 export const backgroundColor = "#062f72";
 
+export const galleryBackgroundPath = "/images/events1.webp";
+export const eventsBackgroundPath = "/images/events.jpg";
+export const careerBackgroundPath = "/images/careers.jpeg";
+
+export const visionPath =
+  "https://img.freepik.com/premium-vector/optiblue-vision-design-modern-eye-with-sleek-blue-gradients_1256803-15494.jpg?semt=ais_hybrid";
+
+export const missionPath =
+  "https://www.seekpng.com/png/detail/430-4307808_our-mission-icon-png-goals-icon-png-blue.png";
+
+export const coreValuesPath =
+  "https://png.pngtree.com/png-vector/20191117/ourmid/pngtree-diamond-icon-cartoon-style-png-image_1990913.jpg";
+
 export const imagePaths = [
   "/images/coding.jpg",
   "/images/aptitude.png",
   "/images/professionals.jpg",
+  "/images/teaching.jpeg",
 ];
 
 export const imageCaptions = [
-  "The right people in the right place at the right time can make all the difference in the corporate world. We help professionals in whichever field they belong to get the best job offers in the country",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aliquam officiis eos temporibus nemo sapiente delectus magni mollitia, vitae quae?",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quis quae facilis unde, voluptate delectus sapiente deleniti impedit ipsam eos cupiditate neque laborum possimus maxime, deserunt, nulla omnis molestias et.",
+  "From Code to Intelligence: Pioneering Skill Mastery.",
+  "Skill-Byte Provides Career-Boosting Corporate Training Programs",
+  "Transforming Ambitions into Achievements in Multiple Sector",
+  "Unlock Your Potential with Experts Training for Placements",
 ];
 
 export const checkItems = [
@@ -32,6 +47,43 @@ export const mission_text = [
 export const vision_text = [
   "Our vision is to become a trusted leader in placement training, known for transforming talent into top-tier professionals. We strive to foster a community where learners from diverse backgrounds can excel, innovate, and achieve their career aspirations with the support of expert guidance and cutting-edge resources.",
   "We envision a future where every learner has the opportunity to excel, leveraging our comprehensive curriculum, personalized support, and commitment to innovation. By consistently evolving with industry trends, we aim to create a lasting impact on careers and the workforce of tomorrow.",
+];
+
+export const coreValueText = [
+  {
+    title: "Work",
+    content: "We put forward work opportunities.",
+  },
+  {
+    title: "Employability",
+    content:
+      "We provide long-term careers by developing skills that allow our people to be employable, today and tomorrow.",
+  },
+  {
+    title: "Aspirations",
+    content:
+      "We understand our people’s aspirations and give them the right direction towards achieving their goals.",
+  },
+  {
+    title: "Values",
+    content:
+      "We ensure that our people deliver value through value-oriented behaviour.",
+  },
+  {
+    title: "Integrity",
+    content:
+      "We make certain that integrity prevails at all levels under all circumstances.",
+  },
+  {
+    title: "Nurture",
+    content:
+      "We care for and nurture our people, and that compassion is reflected in all endeavours.",
+  },
+  {
+    title: "Sustainability",
+    content:
+      "We believe in building sustainability for now, and for the future, through a holistic process which is interconnected and interdependent.",
+  },
 ];
 
 export const programmingLanguages = [

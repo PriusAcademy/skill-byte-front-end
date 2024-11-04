@@ -15,6 +15,10 @@ import { Toaster } from "react-hot-toast";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import EventsPage from "./pages/events-page";
+import GalleryPage from "./pages/gallery-page";
+import CareerPage from "./pages/career-page";
+import NotFound from "./pages/not-found-page";
 
 function App() {
   useEffect(() => {
@@ -41,8 +45,12 @@ function App() {
               />
             </Route>
           </Route>
-          <Route path="contact" element={<ContactPage />} />
+          <Route path="contact/" element={<ContactPage />} />
+          <Route path="events/" element={<EventsPage />} />
+          <Route path="gallery/" element={<GalleryPage />} />
+          <Route path="career/" element={<CareerPage />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </>
     )
   );

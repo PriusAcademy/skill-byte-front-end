@@ -6,7 +6,7 @@ const ContactMain = () => {
     <div>
       <img
         src="/images/contact-us.jpg"
-        className="h-[500px] lg:h-[700px] w-[1900px] "
+        className=" h-60 sm:h-80 md:h-96 lg:h-[30rem] xl:h-[36rem] 2xl:h-[42rem] w-full bg-cover"
         alt=""
       />
       <Container>
@@ -18,8 +18,38 @@ const ContactMain = () => {
               opportunities to help propel your career today!
             </p>
           </div>
+          <div className="flex flex-col gap-6 lg:gap-12 lg:flex-row ">
+            <ContactDetails
+              address={[
+                "22/1, SMP Nagar, Kallankattupudur",
+                "Kinathukadavu, Coimbatore,",
+                "TamilNadu, India-642 109",
+                "CIN:U62099TZ2024PTC031018",
+              ]}
+              title
+              email={["HR@skill-byte.com"]}
+              phoneNumbers={["+91 86107 73303", "+91 79040 99692"]}
+            />
 
-          <ContactDetails />
+            {/* 
+            Contact details:
+Registered office Address: Prius IT services pvt ltd,22/1, SMP Nagar, Kallankattupudur, Kinathukadavu, Coimbatore, Tamilnadu, India - 642 109.
+Corporate office: Prius IT services pvt ltd,C1-102, Srikaram Shubhadhi, Thaiyur road, Kelambakkam, Chennai, Tamilnadu, India - 603103
+CIN:U62099TZ2024PTC031018
+            
+            */}
+            <ContactDetails
+              address={[
+                "Prius IT services pvt ltd",
+                "C1-102, Srikaram Shubhadhi,",
+                "Thaiyur road, Kelambakkam,",
+                "Chennai, Tamilnadu, India - 603103",
+                "CIN:U62099TZ2024PTC031018",
+              ]}
+              email={["HR@skill-byte.com"]}
+              phoneNumbers={["+91 86107 73303", "+91 79040 99692"]}
+            />
+          </div>
         </div>
       </Container>
     </div>

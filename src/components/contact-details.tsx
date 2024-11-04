@@ -48,7 +48,9 @@ const ContactDetails = ({
       >
         Contact details
       </div>
-      <h1 className="text-4xl font-bold">Our Contact</h1>
+      <h1 className={cn(" text-4xl font-bold", !title && "invisible")}>
+        Our Contact
+      </h1>
       <MediaCard title="Address:" Icon={MapPin} body={address} />
       <MediaCard title="Email:" Icon={Mail} body={email} />
       <MediaCard title="Phone:" Icon={Phone} body={phoneNumbers} />

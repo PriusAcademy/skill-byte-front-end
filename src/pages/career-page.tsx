@@ -1,3 +1,4 @@
+import CareerForm from "../components/career-form";
 import { careerBackgroundPath } from "../constansts";
 
 const CareerPage = () => {
@@ -8,6 +9,7 @@ const CareerPage = () => {
         src={careerBackgroundPath}
         alt=""
       />
+      <CareerForm />
     </div>
   );
 };

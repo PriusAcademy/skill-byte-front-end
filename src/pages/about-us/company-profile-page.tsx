@@ -10,14 +10,13 @@ const CompanyProfilePage = () => {
               Company Profile
             </h3>
             <h1 className="text-secondaryBlue font-bold text-5xl text-wrap">
-              Welcome To Prius Academics
+              Welcome To Skill Byte
             </h1>
             <div className="text-gray-600 ">
-              Prius Academics is Skill Development and Career Development
-              Enterprise. The services offered at Prius Academics include
-              Placement / Employability Training, Technical Training, Aptitude &
-              Soft Skills Training, E Learning Platform and Online Assessment
-              Portal .
+              Skill Byte is Skill Development and Career Development Enterprise.
+              The services offered at Skill Byte include Placement /
+              Employability Training, Technical Training, Aptitude & Soft Skills
+              Training, E Learning Platform and Online Assessment Portal .
             </div>
           </div>
         </div>
@@ -40,8 +39,7 @@ const CompanyProfilePage = () => {
           curriculum tailored to meet industry standards, we aim to provide not
           just training but a complete transformation. We believe that with the
           right guidance and support, every individual has the potential to
-          secure their desired job. At Prius Academics your success is our
-          mission.
+          secure their desired job. At Skill Byte your success is our mission.
         </div>
         <h2 className="text-center text-secondaryBlue font-semibold text-xl">
           Join us and take the next step toward a brighter future!

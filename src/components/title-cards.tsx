@@ -11,7 +11,12 @@ const TitleCards = ({ title, content }: TitleCardsProps) => {
       <h3 className="text-secondaryBlue font-semibold">{title}</h3>
       <div className="flex flex-wrap gap-2 perspective-500">
         {content.map((item) => (
-          <TitleCard title={item.title} src={item.src} key={item.title} />
+          <TitleCard
+            title={item.title}
+            major={title}
+            src={item.src}
+            key={item.title}
+          />
         ))}
       </div>
     </div>

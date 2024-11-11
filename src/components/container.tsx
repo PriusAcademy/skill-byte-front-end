@@ -4,7 +4,7 @@ interface ContainerProps {
 
 const Container: React.FunctionComponent<ContainerProps> = ({ children }) => {
   return (
-    <div className="max-w-[1140px] mx-auto h-auto p-2 sm:p-8 md:p-16">
+    <div className="max-w-[1400px] mx-auto h-auto p-2 sm:p-8 md:p-16">
       {children}
     </div>
   );

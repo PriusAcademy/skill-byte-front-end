@@ -8,16 +8,16 @@ const HomePage = () => {
       <Container>
         <div className="flex flex-col md:flex-row gap-6 w-full">
           <div className="w-full md:w-5/12">
-            <div className="flex flex-col gap-7">
+            <div className="flex flex-col gap-7 mt-3">
               <h1
                 data-aos="fade-right"
-                className="text-secondaryBlue text-center font-bold text-5xl text-wrap"
+                className="text-secondaryBlue sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-4xl "
               >
-                Welcome To Skill Byte
+                Welcome To Skill-Byte
               </h1>
               <div data-aos="fade-right" className="text-gray-600 h-full my-12">
-                Skill Byte is Skill Development and Career Development
-                Enterprise. The services offered at Skill Byte include Placement
+                Skill-Byte is Skill Development and Career Development
+                Enterprise. The services offered at Skill-Byte include Placement
                 / Employability Training, Technical Training, Aptitude & Soft
                 Skills Training, E Learning Platform and Online Assessment
                 Portal .
@@ -25,7 +25,11 @@ const HomePage = () => {
             </div>
           </div>
           <div className="flex-1 ">
-            <img data-aos="fade-left" src={"/images/about.jpg"} width={500} />
+            <img
+              data-aos="fade-left"
+              src={"/images/home-content1.jpg"}
+              width={500}
+            />
           </div>
         </div>
         <div className="flex flex-col gap-6 mt-8">

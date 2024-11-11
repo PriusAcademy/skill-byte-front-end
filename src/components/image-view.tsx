@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 interface ImageViewProps {
   src: string;
   text: string;
   activeIndex: number;
   index: number;
+  to: string;
 }
 
 const ImageView: React.FunctionComponent<ImageViewProps> = ({
@@ -10,8 +13,14 @@ const ImageView: React.FunctionComponent<ImageViewProps> = ({
   text,
   activeIndex,
   index,
+  to,
 }) => {
   const isActive = activeIndex == index;
+  const navigate = useNavigate();
+  const onNavigate = (href: string) => {
+    navigate(href);
+  };
+
   // w-auto md:w-full md:h-[700px] h-350px]
   return (
     <div className="w-full relative">
@@ -25,10 +34,16 @@ const ImageView: React.FunctionComponent<ImageViewProps> = ({
             {text}
           </p>
           <div className="flex gap-3">
-            <button className="cursor-pointer rounded-lg uppercase text-xs  sm:text-sm transition duration-150 px-2 sm:px-4 py-1 sm:py-2 text-white bg-activeBlue hover:bg-secondaryBlue">
+            <button
+              onClick={() => onNavigate(to)}
+              className="cursor-pointer rounded-lg uppercase text-xs  sm:text-sm transition duration-150 px-2 sm:px-4 py-1 sm:py-2 text-white bg-activeBlue hover:bg-secondaryBlue"
+            >
               Explore
             </button>
-            <button className="cursor-pointer rounded-lg uppercase text-xs sm:text-sm transition duration-150 px-2 sm:px-4 py-1 sm:py-2 text-white hover:bg-activeBlue bg-transparent border ">
+            <button
+              onClick={() => onNavigate("/contact")}
+              className="cursor-pointer rounded-lg uppercase text-xs sm:text-sm transition duration-150 px-2 sm:px-4 py-1 sm:py-2 text-white hover:bg-activeBlue bg-transparent border "
+            >
               Get in touch
             </button>
           </div>

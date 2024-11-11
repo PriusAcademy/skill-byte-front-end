@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Container from "./container";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from "emailjs-com";
 import {
   Form,
   FormControl,
@@ -13,13 +14,16 @@ import {
 import FormInput from "./form-input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import toast from "react-hot-toast";
 
 const FormSchema = z.object({
   name: z.string().min(4).max(20),
   email: z.string().email(),
   phoneNo: z.string().min(5),
   description: z.string().min(1),
-  file: z.instanceof(File),
+  file: z.any(),
 });
 
 const CareerForm = () => {
@@ -30,12 +34,91 @@ const CareerForm = () => {
       email: "",
       phoneNo: "",
       description: "",
-      file: undefined,
+      file: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const base64 = reader.result?.toString().split(",")[1];
+          form.setValue("file", base64 as string);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  };
+
+  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files) {
+  //     const file = e.target.files[0];
+  //     if (file) {
+  //       form.setValue("file", file);
+  //     }
+  //   }
+  // };
+
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    try {
+      console.log(values);
+      const templateParams = {
+        from_name: values.name,
+        from_email: values.email,
+        to_email: "rajesh99ed@gmail.com",
+        phoneNo: values.phoneNo,
+        attachment: values.file,
+      };
+
+      // const reader = new FileReader();
+      // reader.readAsDataURL(file as Blob);
+
+      // reader.onload = async (e) => {
+      //   const templateParams = {
+      //     from_name: values.name,
+      //     from_email: values.email,
+      //     to_email: "rajesh99ed@gmail.com",
+      //     phoneNo: values.phoneNo,
+      //     file: reader.result,
+      //   };
+
+      //   emailjs
+      //     .send(
+      //       "service_ux1rtvd",
+      //       "template_3ca4wqk",
+      //       templateParams,
+      //       "wlzYKSAQQhzR-rhtD"
+      //     )
+      //     .then((res) => {
+      //       console.log(res);
+      //       toast.success("Successfully Sent");
+      //     })
+      //     .catch((err) => {
+      //       console.log(err);
+      //       toast.error("Something went wrong");
+      //     });
+      // };
+
+      emailjs
+        .send(
+          "service_ux1rtvd",
+          "template_3ca4wqk",
+          templateParams,
+          "wlzYKSAQQhzR-rhtD"
+        )
+        .then((res) => {
+          console.log(res);
+          toast.success("Successfully Sent");
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("Something went wrong");
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -76,15 +159,20 @@ const CareerForm = () => {
                 form={form}
                 key={"phoneNo"}
               />
-              <FormInput
-                label="Upload Resume"
-                name="file"
-                placeholder="Email"
-                type="file"
-                form={form}
-                key={"email"}
-              />
+              <div className="w-full space-y-2 ">
+                <Label className="text-lg" htmlFor="picture">
+                  Resume
+                </Label>
+                <Input
+                  className="text-gray-600"
+                  id="picture"
+                  accept=".pdf,.docx,.doc"
+                  type="file"
+                  onChange={handleFileChange}
+                />
+              </div>
             </div>
+
             <FormField
               control={form.control}
               name="description"

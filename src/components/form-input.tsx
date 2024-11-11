@@ -14,13 +14,13 @@ interface FormInputProps {
     email: string;
     phoneNo: string;
     description: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    file: any;
+    file?: undefined | string;
+    subject?: string;
   }>;
   label: string;
   placeholder: string;
-  type: "text" | "email" | "file";
-  name: "name" | "email" | "phoneNo" | "description" | "file";
+  type: "text" | "email";
+  name: "name" | "email" | "phoneNo" | "description" | "subject";
 }
 
 const FormInput = ({
@@ -38,7 +38,13 @@ const FormInput = ({
         <FormItem className="w-full">
           <FormLabel className="text-lg">{label}</FormLabel>
           <FormControl>
-            <Input type={type} placeholder={placeholder} {...field} />
+            <Input
+              accept=".doc, .docx,.pdf"
+              multiple={false}
+              type={type}
+              placeholder={placeholder}
+              {...field}
+            />
           </FormControl>
           <FormMessage />
         </FormItem>

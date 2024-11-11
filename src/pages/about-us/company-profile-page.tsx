@@ -6,22 +6,24 @@ const CompanyProfilePage = () => {
       <div className="flex flex-col md:flex-row gap-6 w-full">
         <div className="w-full md:w-5/12">
           <div className="flex flex-col gap-7">
-            <h3 className={`text-activeBlue text-2xl font-semibold`}>
+            <h3
+              className={`text-activeBlue text-2xl text-center font-semibold`}
+            >
               Company Profile
             </h3>
             <h1 className="text-secondaryBlue font-bold text-5xl text-wrap">
-              Welcome To Skill Byte
+              Welcome To Skill-Byte
             </h1>
             <div className="text-gray-600 ">
-              Skill Byte is Skill Development and Career Development Enterprise.
-              The services offered at Skill Byte include Placement /
+              Skill-Byte is Skill Development and Career Development Enterprise.
+              The services offered at Skill-Byte include Placement /
               Employability Training, Technical Training, Aptitude & Soft Skills
               Training, E Learning Platform and Online Assessment Portal .
             </div>
           </div>
         </div>
         <div className="flex-1 ">
-          <img src={"/images/about.jpg"} width={500} />
+          <img src={"/images/home-content1.jpg"} width={500} />
         </div>
       </div>
       <div className="flex flex-col gap-6 mt-8">
@@ -39,7 +41,7 @@ const CompanyProfilePage = () => {
           curriculum tailored to meet industry standards, we aim to provide not
           just training but a complete transformation. We believe that with the
           right guidance and support, every individual has the potential to
-          secure their desired job. At Skill Byte your success is our mission.
+          secure their desired job. At Skill-Byte your success is our mission.
         </div>
         <h2 className="text-center text-secondaryBlue font-semibold text-xl">
           Join us and take the next step toward a brighter future!

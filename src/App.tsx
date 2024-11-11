@@ -19,6 +19,9 @@ import EventsPage from "./pages/events-page";
 import GalleryPage from "./pages/gallery-page";
 import CareerPage from "./pages/career-page";
 import NotFound from "./pages/not-found-page";
+import CoursesHomePage from "./pages/courses-home-page";
+import TestIndexPage from "./components/test-pages/test-index-page";
+import TestPage from "./components/test-pages/test-page";
 
 function App() {
   useEffect(() => {
@@ -34,15 +37,21 @@ function App() {
       <>
         <Route path="/" element={<Navbar />}>
           <Route index element={<HomePage />} />
-          <Route path="company-profile" element={<CompanyProfile />} />
-          <Route path="/vision" element={<MissionCoreValues />} />
+          <Route path="company-profile/" element={<CompanyProfile />} />
+          <Route path="/vision/" element={<MissionCoreValues />} />
           <Route path="courses/">
-            <Route path="professionals" element={<ProfesstionalsPage />} />
+            <Route path="professionals/" element={<ProfesstionalsPage />} />
             <Route path="students/">
+              <Route index element={<CoursesHomePage />} />
               <Route
                 path="computer-science"
                 element={<ComputerScienceCourses />}
               />
+            </Route>
+
+            <Route path=":learner/:major/:specialization/:concept/">
+              <Route index element={<TestIndexPage />} />
+              <Route path="test/" element={<TestPage />} />
             </Route>
           </Route>
           <Route path="contact/" element={<ContactPage />} />

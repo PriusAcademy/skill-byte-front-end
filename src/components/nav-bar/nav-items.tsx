@@ -5,15 +5,6 @@ import DesktopNavBar from "../large-devices/desktop-nav-bar";
 const NavItems = () => {
   const { pathname } = useLocation();
 
-  const studentCourses = [
-    {
-      course: "Computer Science Engineering",
-      href: "/courses/students/computer-science",
-    },
-    { course: "Electrical Engineering", href: "/courses/students/electrical" },
-    { course: "Mechanical Engineering", href: "/courses/students/mechanical" },
-  ];
-
   const links = [
     {
       title: "Home",
@@ -53,17 +44,15 @@ const NavItems = () => {
     },
     {
       title: "Courses",
-      isActive: pathname == "/courses",
+      isActive: pathname.includes("/courses"),
       data: [
         {
           title: "Working Professionals",
           href: "/courses/professionals",
-          courses: [{ course: "General", href: "/courses/professionals" }],
         },
         {
           title: "Students",
           href: "/courses/students",
-          courses: studentCourses,
         },
       ],
     },

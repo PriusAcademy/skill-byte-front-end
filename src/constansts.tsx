@@ -2,9 +2,9 @@ export const hoverColor = "#04a7ee";
 export const primaryColor = "#0c3a85";
 export const backgroundColor = "#062f72";
 
-export const galleryBackgroundPath = "/images/events1.webp";
-export const eventsBackgroundPath = "/images/events.jpg";
-export const careerBackgroundPath = "/images/careers.jpeg";
+export const galleryBackgroundPath = "/images/gallery.webp";
+export const eventsBackgroundPath = "/images/events1.jpeg";
+export const careerBackgroundPath = "/images/career.webp";
 
 export const visionPath =
   "https://img.freepik.com/premium-vector/optiblue-vision-design-modern-eye-with-sleek-blue-gradients_1256803-15494.jpg?semt=ais_hybrid";
@@ -22,6 +22,13 @@ export const imagePaths = [
   "/images/teaching.jpeg",
 ];
 
+export const gallery_dscet = [
+  "/images/gallery/DSCET/1.jpeg",
+  "/images/gallery/DSCET/2.jpeg",
+  "/images/gallery/DSCET/3.jpeg",
+  "/images/gallery/DSCET/4.jpeg",
+];
+
 export const imageCaptions = [
   "From Code to Intelligence: Pioneering Skill Mastery.",
   "Skill-Byte Provides Career-Boosting Corporate Training Programs",
@@ -29,14 +36,11 @@ export const imageCaptions = [
   "Unlock Your Potential with Experts Training for Placements",
 ];
 
-export const checkItems = [
-  "Permanent Staffing Services",
-  "Contract Staffing Services",
-  "Contract To Hire Staffing Services",
-  "Recruitment Process Outsourcing Services",
-  "HR Outsourcing Services",
-  "Next-Gen Background Verfication",
-  "On-site recruitment Service",
+export const navigations = [
+  "/courses/students/computer-science",
+  "",
+  "/courses/students",
+  "",
 ];
 
 export const mission_text = [

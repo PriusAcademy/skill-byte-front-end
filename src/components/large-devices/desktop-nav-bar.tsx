@@ -30,7 +30,7 @@ interface DesktopNavBarProps {
 const DesktopNavBar = ({ data, links }: DesktopNavBarProps) => {
   return (
     <>
-      <div className="hidden lg:flex  items-center z-40 gap-6 z-10]">
+      <div className="hidden lg:flex  items-center z-10 gap-6 ]">
         <Link
           href={links[0].href}
           isActive={links[0].isActive}

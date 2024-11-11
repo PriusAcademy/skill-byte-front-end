@@ -24,8 +24,13 @@ const Navbar = () => {
           Icon={Mail}
         />
         <TextWithIcon
-          aosAnimate="fade-left"
+          aosAnimate="flip-left"
           title="Coimbatore, Tamilnadu-642109"
+          Icon={MapPinIcon}
+        />
+        <TextWithIcon
+          aosAnimate="fade-left"
+          title="Chennai, Tamilnadu-603103"
           Icon={MapPinIcon}
         />
       </div>
@@ -34,8 +39,8 @@ const Navbar = () => {
         <div className="relative flex-1 p-3 max-w-[1024px] mx-auto flex justify-between items-center h-full">
           <NavLink to="/">
             <img
-              width={150}
-              src="https://www.priusitservices.com/assets/img/logo.png"
+              className="w-[250px] h-[70px]"
+              src="/images/skill-byte-logo.jpg"
               alt=""
             />
           </NavLink>

@@ -13,7 +13,7 @@ const ContactMain = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center gap-6">
             <h1 className="text-4xl font-bold text-blue-900">Get In Touch</h1>
-            <p className="text-md text-gray-600">
+            <p className="text-md text-gray-600 text-center">
               Connect with us to find out more, or discover exciting job
               opportunities to help propel your career today!
             </p>
@@ -21,12 +21,21 @@ const ContactMain = () => {
           <div className="flex flex-col gap-6 lg:gap-12 lg:flex-row ">
             <ContactDetails
               address={[
-                "22/1, SMP Nagar, Kallankattupudur",
-                "Kinathukadavu, Coimbatore,",
-                "TamilNadu, India-642 109",
-                "CIN:U62099TZ2024PTC031018",
+                [
+                  "Prius IT services pvt ltd,",
+                  "22/1, SMP Nagar, Kallankattupudur",
+                  "Kinathukadavu, Coimbatore,",
+                  "TamilNadu, India-642 109",
+                  "CIN:U62099TZ2024PTC031018",
+                ],
+                [
+                  "Prius IT services pvt ltd",
+                  "C1-102, Srikaram Shubhadhi,",
+                  "Thaiyur road, Kelambakkam,",
+                  "Chennai, Tamilnadu, India - 603103",
+                  "CIN:U62099TZ2024PTC031018",
+                ],
               ]}
-              title
               email={["HR@skill-byte.com"]}
               phoneNumbers={["+91 86107 73303", "+91 79040 99692"]}
             />
@@ -38,17 +47,6 @@ Corporate office: Prius IT services pvt ltd,C1-102, Srikaram Shubhadhi, Thaiyur 
 CIN:U62099TZ2024PTC031018
             
             */}
-            <ContactDetails
-              address={[
-                "Prius IT services pvt ltd",
-                "C1-102, Srikaram Shubhadhi,",
-                "Thaiyur road, Kelambakkam,",
-                "Chennai, Tamilnadu, India - 603103",
-                "CIN:U62099TZ2024PTC031018",
-              ]}
-              email={["HR@skill-byte.com"]}
-              phoneNumbers={["+91 86107 73303", "+91 79040 99692"]}
-            />
           </div>
         </div>
       </Container>

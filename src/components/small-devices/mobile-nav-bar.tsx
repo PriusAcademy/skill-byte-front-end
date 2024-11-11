@@ -51,14 +51,17 @@ const MobileNavBar = ({ data, links }: MobileNavBarProps) => {
         <SheetContent className="w-[300px] sm:w-[540px] flex flex-col justify-start items-center ">
           <div>{!isAuthorized() ? <SignInButton /> : <Profile />}</div>
           <div className="h-[1px] bg-gray-200 w-full" />
-          <div className="flex flex-col w-full  items-center z-40 gap-6 z-10]">
+          <div
+            key={data[0].title}
+            className="flex flex-col w-full  items-center z-40 gap-6 z-10]"
+          >
             <Link
               href={links[0].href}
               isActive={links[0].isActive}
               title={links[0].title}
               key={links[0].href}
             />
-            <div className="h-[1px] bg-gray-200 w-full" />
+            <div key={links[0].href} className="h-[1px] bg-gray-200 w-full" />
 
             <NavDropDown
               isActive={data[0].isActive}
@@ -66,7 +69,7 @@ const MobileNavBar = ({ data, links }: MobileNavBarProps) => {
               data={data[0].data}
               title={data[0].title}
             />
-            <div className="h-[1px] bg-gray-200 w-full" />
+            <div key={data[0].title} className="h-[1px] bg-gray-200 w-full" />
 
             <Link
               href={links[1].href}
@@ -74,7 +77,7 @@ const MobileNavBar = ({ data, links }: MobileNavBarProps) => {
               title={links[1].title}
               key={links[1].href}
             />
-            <div className="h-[1px] bg-gray-200 w-full" />
+            <div key={links[1].href} className="h-[1px] bg-gray-200 w-full" />
 
             <NavDropDown
               isActive={data[1].isActive}
@@ -84,13 +87,13 @@ const MobileNavBar = ({ data, links }: MobileNavBarProps) => {
             />
             <div className="h-[1px] bg-gray-200 w-full" />
 
-            {links.slice(2).map((link) => (
+            {links.slice(2).map((link, index) => (
               <>
                 <Link
                   href={link.href}
                   isActive={link.isActive}
                   title={link.title}
-                  key={link.href}
+                  key={`${link.href}-${index}`}
                 />
                 <div className="h-[1px] bg-gray-200 w-full" />
               </>

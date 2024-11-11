@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 //@ts-expect-error
 import "swiper/css/pagination";
 
-import { imageCaptions, imagePaths } from "../constansts";
+import { imageCaptions, imagePaths, navigations } from "../constansts";
 import ImageView from "./image-view";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -55,6 +55,7 @@ const Swipe = () => {
             text={imageCaptions[index]}
             src={src}
             key={src}
+            to={navigations[index]}
           />
         </SwiperSlide>
       ))}

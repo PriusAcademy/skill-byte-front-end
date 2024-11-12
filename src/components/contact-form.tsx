@@ -123,7 +123,7 @@ const ContactForm = () => {
                   <FormLabel className="text-lg">Description</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Plese Provide details"
+                      placeholder="Please Provide details"
                       className="resize-none "
                       rows={8}
                       {...field}

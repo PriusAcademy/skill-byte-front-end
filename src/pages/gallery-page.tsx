@@ -1,5 +1,9 @@
 import GalleryCard from "../components/gallery-card";
-import { gallery_dscet, galleryBackgroundPath } from "../constansts";
+import {
+  gallery_dscet,
+  gallery_dscet_2,
+  galleryBackgroundPath,
+} from "../constansts";
 import useGalleryModal from "../hooks/gallery-modal-store";
 
 const GalleryPage = () => {
@@ -23,6 +27,15 @@ const GalleryPage = () => {
             title="Dhanalakshmi Srinivasan College of Engineering and Technology"
             src={gallery_dscet[0]}
             onClick={onGalleryOpen}
+            date="September 2024"
+          />
+
+          <GalleryCard
+            title="Dhanalakshmi Srinivasan College of Engineering and Technology"
+            src={gallery_dscet_2[0]}
+            onClick={() => {
+              galleryModal.onOpen(gallery_dscet_2);
+            }}
             date="November 2024"
           />
         </div>

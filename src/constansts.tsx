@@ -29,6 +29,12 @@ export const gallery_dscet = [
   "/images/gallery/DSCET/4.jpeg",
 ];
 
+export const gallery_dscet_2 = [
+  "/images/gallery/DSCET-2/1.jpeg",
+  "/images/gallery/DSCET-2/2.jpeg",
+  "/images/gallery/DSCET-2/3.jpeg",
+];
+
 export const imageCaptions = [
   "From Code to Intelligence: Pioneering Skill Mastery.",
   "Skill-Byte Provides Career-Boosting Corporate Training Programs",
@@ -284,4 +290,13 @@ export const fullStack = [
   //   title: "Connection in full stack",
   //   src: "https://cdn-icons-png.flaticon.com/512/6213/6213731.png",
   // },
+];
+
+export const campusDrive = [
+  { title: "Quantitative Aptitude", src: "/images/aptitude.jpg" },
+  { title: "Verbal Ability", src: "/images/verbal-ability.webp" },
+  { title: "Logical Reasoning", src: "/images/logical-reasoning.jpg" },
+  // { title: "Communication", src: "images/communication.webp" },
+  { title: "Resume Building", src: "/images/resume-building.png" },
+  { title: "Mock Interview", src: "/images/mock-interview.webp" },
 ];

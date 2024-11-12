@@ -43,8 +43,7 @@ const CompanyProfileMain = () => {
           curriculum tailored to meet industry standards, we aim to provide not
           just training but a complete transformation. We believe that with the
           right guidance and support, every individual has the potential to
-          secure their desired job. At Prius Academics your success is our
-          mission.
+          secure their desired job. At Skill-Byte your success is our mission.
         </div>
         <h2
           data-aos="zoom-in-up"

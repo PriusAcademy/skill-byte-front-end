@@ -6,7 +6,7 @@ export const event_data = [
     },
     {
         date : "06.11.2024-08.11.2024",
-        name : "VALUE ADDED COURSE ON MACHINE LEARNING AND ITS APPLICATIONS",
+        name : "Value added course on Machine Learning and its Applications",
         place : "Dhanalakshmi Srinivasan College of Engineering and Technology, Chennai"
     },
 ]

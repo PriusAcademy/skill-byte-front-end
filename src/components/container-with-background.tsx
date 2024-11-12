@@ -14,7 +14,7 @@ const ContainerWithBackground = ({
       bg-yellow-pattern bg-no-repeat bg-cover
       relative"
     >
-      <div className="absolute inset-0 z-20">
+      <div className="absolute inset-0 ">
         <Container>{children}</Container>
       </div>
     </div>

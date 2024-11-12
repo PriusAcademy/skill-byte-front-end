@@ -20,4 +20,11 @@ export const courseData = [
           nQuestions:200,
           title:"Electrical Engineering"
     },
+    {
+        src:"/images/campus-drive.webp",
+          href:"/courses/students/campus-drive",
+          nCategories:10,
+          nQuestions:200,
+          title:"Campus Drive"
+    },
 ]

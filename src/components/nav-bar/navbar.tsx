@@ -6,6 +6,7 @@ import { Mail, MapPinIcon, Phone } from "lucide-react";
 import SignInButton from "../sign-in-button";
 import { isAuthorized } from "../../utils/isAuthorized";
 import Profile from "../profile";
+import Footer from "../footer";
 
 const Navbar = () => {
   return (
@@ -19,7 +20,7 @@ const Navbar = () => {
         />
         <TextWithIcon
           aosAnimate="flip-right"
-          href="mailto:HR@abcd.com"
+          href="mailto:HR@skill-byte.com"
           title="HR@skill-byte.com"
           Icon={Mail}
         />
@@ -51,6 +52,7 @@ const Navbar = () => {
         </div>
       </div>
       <Outlet />
+      <Footer />
       <ModalProvider />
     </>
   );

@@ -19,7 +19,7 @@ const GalleryCard = ({ onClick, src, title, date }: GalleryCardProps) => {
           <img
             src={src}
             alt=""
-            className="h-full w-full group-hover:scale-105 hover:rounded-md transition duration-100"
+            className="h-[200px] w-[280px] group-hover:scale-105 hover:rounded-md transition duration-100"
           />
           <p className="text-sm text-center text-white font-semibold">
             {title}

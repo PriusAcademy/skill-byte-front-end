@@ -32,7 +32,7 @@ const NavHoverCard = ({ isActive, title, data }: NavHoverCardProps) => {
           size={20}
         />
       </HoverCardTrigger>
-      <HoverCardContent className="bg-backgroundBlue">
+      <HoverCardContent className="bg-secondaryBlue z-30 ">
         <HoverItems data={data!} />
       </HoverCardContent>
     </HoverCard>

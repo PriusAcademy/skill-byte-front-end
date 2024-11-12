@@ -22,6 +22,7 @@ import NotFound from "./pages/not-found-page";
 import CoursesHomePage from "./pages/courses-home-page";
 import TestIndexPage from "./components/test-pages/test-index-page";
 import TestPage from "./components/test-pages/test-page";
+import CampusDrivePage from "./pages/student-courses/campus-drive-course";
 
 function App() {
   useEffect(() => {
@@ -47,6 +48,7 @@ function App() {
                 path="computer-science"
                 element={<ComputerScienceCourses />}
               />
+              <Route path="campus-drive" element={<CampusDrivePage />} />
             </Route>
 
             <Route path=":learner/:major/:specialization/:concept/">

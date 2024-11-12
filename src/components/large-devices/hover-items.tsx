@@ -55,7 +55,7 @@ interface HoverItemsProps {
 const HoverItems = ({ data }: HoverItemsProps) => {
   console.log(data);
   return (
-    <div className="flex flex-col gap-2 ">
+    <div className="flex flex-col gap-2 z-10 ">
       {data.map((item) => (
         <HoverItem
           courses={item.courses}

@@ -20,9 +20,10 @@ import GalleryPage from "./pages/gallery-page";
 import CareerPage from "./pages/career-page";
 import NotFound from "./pages/not-found-page";
 import CoursesHomePage from "./pages/courses-home-page";
-import TestIndexPage from "./components/test-pages/test-index-page";
-import TestPage from "./components/test-pages/test-page";
+
 import CampusDrivePage from "./pages/student-courses/campus-drive-course";
+import TestIndexPage from "./pages/test-index-page";
+import TestPage from "./pages/test-page";
 
 function App() {
   useEffect(() => {

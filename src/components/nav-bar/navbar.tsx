@@ -35,24 +35,27 @@ const Navbar = () => {
           Icon={MapPinIcon}
         />
       </div>
-
-      <div className="h-20 w-full  bg-white flex justify-between">
-        <div className="relative flex-1 p-3 max-w-[1024px] mx-auto flex justify-between items-center h-full">
-          <NavLink to="/">
-            <img
-              className="w-[250px] h-[70px]"
-              src="/images/skill-byte-logo.jpg"
-              alt=""
-            />
-          </NavLink>
-          <NavItems />
+      <div className="flex flex-col h-screen">
+        <div className="h-20 w-full  bg-white flex justify-between">
+          <div className="relative flex-1 p-3 max-w-[1024px] mx-auto flex justify-between items-center h-full">
+            <NavLink to="/">
+              <img
+                className="w-[250px] h-[70px]"
+                src="/images/skill-byte-logo.jpg"
+                alt=""
+              />
+            </NavLink>
+            <NavItems />
+          </div>
+          <div className="hidden lg:flex items-center mr-10 ml-2">
+            {!isAuthorized() ? <SignInButton /> : <Profile />}
+          </div>
         </div>
-        <div className="hidden lg:flex items-center mr-10 ml-2">
-          {!isAuthorized() ? <SignInButton /> : <Profile />}
+        <div className="flex-1">
+          <Outlet />
         </div>
+        <Footer />
       </div>
-      <Outlet />
-      <Footer />
       <ModalProvider />
     </>
   );

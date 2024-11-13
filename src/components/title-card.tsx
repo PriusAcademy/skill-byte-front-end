@@ -30,8 +30,6 @@ const TitleCard = ({
     window.location.href = newPath;
   };
 
-  console.log(onClick);
-
   return (
     <div
       onClick={onClick}

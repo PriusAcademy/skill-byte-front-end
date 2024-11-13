@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
-import Container from "../container";
-import QuestionBundle from "../question-bundle";
+import Container from "../components/container";
+import QuestionBundle from "../components/question-bundle";
+import { getTestPageTitle } from "../utils/utils";
 
 const TestIndexPage = () => {
   const params = useParams() as {
@@ -10,11 +11,8 @@ const TestIndexPage = () => {
     specialization: string;
   };
 
-  const title = params.concept
-    .split("-")
-    .join(" ")
-    .replace("%26", "&")
-    .toUpperCase();
+  const title = getTestPageTitle(params.concept);
+
   return (
     <Container>
       <h1 className=" [text-shadow:_0_2px_4px_rgb(99_102_241_/_0.8)] text-3xl font-semibold text-center text-secondaryBlue">

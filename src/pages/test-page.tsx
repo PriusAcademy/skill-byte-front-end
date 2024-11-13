@@ -1,6 +1,6 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import Container from "../container";
-import QuestionCard from "../question-card";
+import Container from "../components/container";
+import QuestionCard from "../components/question-card";
 
 const TestPage = () => {
   const params = useParams() as {

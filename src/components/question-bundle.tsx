@@ -1,6 +1,7 @@
 import { Clock } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
+import useTestModal from "../hooks/test-start-modal-store";
 
 interface QuestionBundleProps {
   index: number;
@@ -8,15 +9,17 @@ interface QuestionBundleProps {
 
 const QuestionBundle = ({ index }: QuestionBundleProps) => {
   const { pathname } = useLocation();
-  const onClick = () => {
+
+  const getPathname = () => {
     const parsed = queryString.parseUrl(pathname + "/test");
     parsed.query.index = `${index}`;
-    const newPathname = queryString.stringifyUrl(parsed);
-    window.location.href = newPathname;
+    return queryString.stringifyUrl(parsed);
   };
+
+  const testModal = useTestModal();
   return (
     <div
-      onClick={onClick}
+      onClick={() => testModal.onOpen({ href: getPathname(), duration: "20" })}
       className="border shadow-md hover:shadow-xl max-w-3xl ease-in mx-8 p-4 mb-8 relative w-full hover:-translate-y-2 transition duration-100 cursor-pointer"
     >
       <h1 className="text-xl font-bold">Test 1</h1>

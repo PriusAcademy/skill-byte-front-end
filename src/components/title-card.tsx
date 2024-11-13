@@ -34,7 +34,7 @@ const TitleCard = ({
 
   return (
     <div
-      onClick={() => loginModal.onOpen()}
+      onClick={onClick}
       className={cn(
         "flex preserve-3d items-center gap-3 transition hover:translate-z-10 duration-150 border rounded-sm p-1 hover:shadow-md cursor-pointer",
         className

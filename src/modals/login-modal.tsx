@@ -5,19 +5,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import CustomInput from "../components/custom-input";
 import { Form } from "../components/ui/form";
-import { Building2Icon, LockKeyhole, UserRound } from "lucide-react";
+import {
+  Building2Icon,
+  LockKeyhole,
+  PencilRuler,
+  UserRound,
+} from "lucide-react";
 import { Button } from "../components/ui/button";
 import { cn } from "../lib/utils";
 import useLoginModal from "../hooks/login-modal-store";
 // import { API } from "../utils/connection";
 import toast from "react-hot-toast";
 import setItem from "../actions/setItem";
-import axios from "axios";
+
+import { API } from "../utils/connection";
 
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(4).max(20),
   institute: z.string().optional(),
+  name: z.string().optional(),
 });
 
 const LoginModal = () => {
@@ -33,6 +40,7 @@ const LoginModal = () => {
       email: "",
       password: "",
       institute: "",
+      name: "",
     },
   });
 
@@ -42,6 +50,7 @@ const LoginModal = () => {
     form.setValue("institute", "");
     form.setValue("email", "");
     form.setValue("password", "");
+    form.setValue("name", "");
     setSignIn(true);
   };
 
@@ -49,6 +58,7 @@ const LoginModal = () => {
     form.setValue("institute", "");
     form.setValue("email", "");
     form.setValue("password", "");
+    form.setValue("name", "");
     setSignIn(false);
   };
 
@@ -58,11 +68,13 @@ const LoginModal = () => {
       let res;
       let message;
       if (signIn) {
-        res = await axios.post("http://localhost:8000/auth/signin", values);
+        res = await API.post("auth/signin", values);
         message = "Signed In";
       } else {
-        res = await axios.post("http://localhost:8000/auth/signup", values);
+        console.log(values);
+        res = await API.post("auth/signup", values);
         message = "Registered Succesffully";
+        console.log(res.data);
       }
       setItem("profile", res.data as object);
       toast.success(message);
@@ -110,6 +122,16 @@ const LoginModal = () => {
               className="space-y-4 p-4 mt-2"
               onSubmit={form.handleSubmit(onSubmit)}
             >
+              {!signIn && (
+                <CustomInput
+                  placeholder="Name"
+                  form={form}
+                  name="name"
+                  key={"name"}
+                  Icon={PencilRuler}
+                  type="text"
+                />
+              )}
               <CustomInput
                 placeholder="Email"
                 form={form}

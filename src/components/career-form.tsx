@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import Container from "./container";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import emailjs from "emailjs-com";
 import {
   Form,
   FormControl,
@@ -17,13 +16,14 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import axios from "axios";
 
 const FormSchema = z.object({
   name: z.string().min(4).max(20),
   email: z.string().email(),
   phoneNo: z.string().min(5),
   description: z.string().min(1),
-  file: z.any(),
 });
 
 const CareerForm = () => {
@@ -34,21 +34,14 @@ const CareerForm = () => {
       email: "",
       phoneNo: "",
       description: "",
-      file: "",
     },
   });
 
+  const [attachment, setAttachment] = useState<File>();
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          const base64 = reader.result?.toString().split(",")[1];
-          form.setValue("file", base64 as string);
-        };
-        reader.readAsDataURL(file);
-      }
+      setAttachment(e.target.files[0]);
     }
   };
 
@@ -62,64 +55,84 @@ const CareerForm = () => {
   // };
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    try {
-      console.log(values);
-      const templateParams = {
-        from_name: values.name,
-        from_email: values.email,
-        to_email: "rajesh99ed@gmail.com",
-        phoneNo: values.phoneNo,
-        attachment: values.file,
-      };
+    // Convert file to base64
+    if (attachment) {
+      try {
+        const formData = new FormData();
+        formData.append("description", values.description);
+        formData.append("email", values.email);
+        formData.append("phoneNo", values.phoneNo);
+        formData.append("name", values.name);
+        formData.append("attachment", attachment);
+        const res = await axios.post(
+          "http://localhost:8000/send-mail",
+          formData,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        );
 
-      // const reader = new FileReader();
-      // reader.readAsDataURL(file as Blob);
-
-      // reader.onload = async (e) => {
-      //   const templateParams = {
-      //     from_name: values.name,
-      //     from_email: values.email,
-      //     to_email: "rajesh99ed@gmail.com",
-      //     phoneNo: values.phoneNo,
-      //     file: reader.result,
-      //   };
-
-      //   emailjs
-      //     .send(
-      //       "service_ux1rtvd",
-      //       "template_3ca4wqk",
-      //       templateParams,
-      //       "wlzYKSAQQhzR-rhtD"
-      //     )
-      //     .then((res) => {
-      //       console.log(res);
-      //       toast.success("Successfully Sent");
-      //     })
-      //     .catch((err) => {
-      //       console.log(err);
-      //       toast.error("Something went wrong");
-      //     });
-      // };
-
-      emailjs
-        .send(
-          "service_ux1rtvd",
-          "template_3ca4wqk",
-          templateParams,
-          "wlzYKSAQQhzR-rhtD"
-        )
-        .then((res) => {
-          console.log(res);
-          toast.success("Successfully Sent");
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error("Something went wrong");
-        });
-    } catch (error) {
-      console.log(error);
+        console.log(res.data);
+        toast.success("Data sent Successfully!");
+      } catch (error) {
+        console.log(error);
+        toast.error("Something went wrong");
+      }
     }
   };
+
+  // const templateParams = {
+  //   from_name: values.name,
+  //   from_email: values.email,
+  //   to_email: "rajesh99ed@gmail.com",
+  //   phoneNo: values.phoneNo,
+  //   attachment: values.file,
+  // };
+
+  // const reader = new FileReader();
+  // reader.readAsDataURL(file as Blob);
+
+  // reader.onload = async (e) => {
+  //   const templateParams = {
+  //     from_name: values.name,
+  //     from_email: values.email,
+  //     to_email: "rajesh99ed@gmail.com",
+  //     phoneNo: values.phoneNo,
+  //     file: reader.result,
+  //   };
+
+  //   emailjs
+  //     .send(
+  //       "service_ux1rtvd",
+  //       "template_3ca4wqk",
+  //       templateParams,
+  //       "wlzYKSAQQhzR-rhtD"
+  //     )
+  //     .then((res) => {
+  //       console.log(res);
+  //       toast.success("Successfully Sent");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       toast.error("Something went wrong");
+  //     });
+  // };
+
+  // emailjs
+  //   .send(
+  //     "service_ux1rtvd",
+  //     "template_3ca4wqk",
+  //     templateParams,
+  //     "wlzYKSAQQhzR-rhtD"
+  //   )
+  //   .then((res) => {
+  //     console.log(res);
+  //     toast.success("Successfully Sent");
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     toast.error("Something went wrong");
+  //   });
 
   return (
     <Container>

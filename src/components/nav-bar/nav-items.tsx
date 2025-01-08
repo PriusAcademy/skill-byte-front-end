@@ -31,6 +31,11 @@ const NavItems = () => {
       href: "/contact",
       isActive: pathname == "/contact",
     },
+    {
+      title: "Certfications",
+      href: "/certifications",
+      isActive: pathname == "/contact",
+    },
   ];
 
   const data = [

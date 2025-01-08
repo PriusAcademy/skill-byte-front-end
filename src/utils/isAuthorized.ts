@@ -1,8 +1,10 @@
-interface UserData {
+export interface UserData {
     token:string;
     institute:string;
     email:string;
-    id:string
+    id: string,
+    name: string,
+    code:string
 }
 
 export const getUser = ()=>{

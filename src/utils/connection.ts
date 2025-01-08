@@ -1,7 +1,8 @@
 import axios from 'axios'
 
-
-export const API_URL = "https://prius-it-backend.onrender.com"
+// "http://localhost:8000/"
+// "https://backend-pf3b.onrender.com/"
+export const API_URL = "http://localhost:8000/"
 
 export const API = axios.create({baseURL:API_URL})
 
@@ -11,3 +12,5 @@ API.interceptors.request.use((req)=>{
     }
     return req
 })
+
+// npm install && npm run prisma:generate && npm run prisma:migrate && npm run build

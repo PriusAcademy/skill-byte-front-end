@@ -9,6 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../components/ui/dialog";
+import { cn } from "../lib/utils";
 
 interface ModalProps {
   open: boolean;
@@ -29,6 +30,7 @@ interface ModalProps {
     | "outline"
     | null
     | undefined;
+  danger?: boolean;
 }
 
 const CustomModal = ({
@@ -42,6 +44,7 @@ const CustomModal = ({
   disabled,
   variant = "default",
   description,
+  danger,
 }: ModalProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -52,15 +55,22 @@ const CustomModal = ({
           <DialogTitle className="font-semibold text-secondaryBlue text-2xl">
             {title}
           </DialogTitle>
-          <DialogDescription className="text-md">
+          <DialogDescription
+            className={cn("text-md font-semibold", danger && "text-red-500")}
+          >
             {description}
           </DialogDescription>
           {children}
           <DialogFooter>
-            <Button onClick={onClose} disabled={disabled}>
+            <Button className="mt-2" onClick={onClose} disabled={disabled}>
               Close
             </Button>
-            <Button variant={variant} onClick={onSubmit} disabled={disabled}>
+            <Button
+              className="mt-2 focus:none"
+              variant={variant}
+              onClick={onSubmit}
+              disabled={disabled}
+            >
               {actionTitle}
             </Button>
           </DialogFooter>

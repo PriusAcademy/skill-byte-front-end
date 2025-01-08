@@ -9,7 +9,7 @@ export default {
   	extend: {
   		backgroundImage: {
   			'yellow-pattern': "url('/images/liquid-cheese.svg')",
-			'custom-gradient': 'radial-gradient(at center, #89CFD9, #51D5A1)',
+  			'custom-gradient': 'radial-gradient(at center, #89CFD9, #51D5A1)'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -19,7 +19,7 @@ export default {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-			  'custom-color' :"#89CFD9",
+  			'custom-color': '#89CFD9',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

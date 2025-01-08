@@ -1,10 +1,12 @@
 import { useLocation } from "react-router-dom";
 import useLoginModal from "../hooks/login-modal-store";
 import { cn } from "../lib/utils";
+import { getUser } from "../utils/isAuthorized";
 
 interface TitleCardProps {
   title: string;
   src: string;
+  id: string;
   major: string;
   className?: string;
   iconSize?: string;
@@ -15,19 +17,23 @@ const TitleCard = ({
   major,
   title,
   src,
+  id,
   iconSize,
   className,
   titleStyle,
 }: TitleCardProps) => {
   const loginModal = useLoginModal();
   const { pathname } = useLocation();
-
+  const user = getUser();
   const onClick = () => {
-    const newMajor = major.split(" ").join("-");
-    const newTitle = title.split(" ").join("-").replace("&", "%26");
-    const newPath =
-      pathname + "/" + newMajor.toLowerCase() + "/" + newTitle.toLowerCase();
-    window.location.href = newPath;
+    if (!user) {
+      loginModal.onOpen();
+    } else {
+      const newMajor = major.split(" ").join("-");
+      // const newTitle = title.split(" ").join("-").replace("&", "%26");
+      const newPath = pathname + "/" + newMajor.toLowerCase() + "/" + id;
+      window.location.href = newPath;
+    }
   };
 
   return (

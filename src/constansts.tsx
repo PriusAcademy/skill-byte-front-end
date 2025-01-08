@@ -296,7 +296,7 @@ export const campusDrive = [
   { title: "Quantitative Aptitude", src: "/images/aptitude.jpg" },
   { title: "Verbal Ability", src: "/images/verbal-ability.webp" },
   { title: "Logical Reasoning", src: "/images/logical-reasoning.jpg" },
-  // { title: "Communication", src: "images/communication.webp" },
+  { title: "Soft Skills", src: "/images/communication.webp" },
   { title: "Resume Building", src: "/images/resume-building.png" },
   { title: "Mock Interview", src: "/images/mock-interview.webp" },
 ];

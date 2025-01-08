@@ -7,8 +7,24 @@ import SignInButton from "../sign-in-button";
 import { isAuthorized } from "../../utils/isAuthorized";
 import Profile from "../profile";
 import Footer from "../footer";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useEffect } from "react";
+import { ReceivedValueType, setValue } from "../../app/features/learner-slice";
+import { API } from "../../utils/connection";
 
 const Navbar = () => {
+  const exisitingLearnersData = useAppSelector((state) => state.learner).value;
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (exisitingLearnersData.length === 0) {
+      const get = async () => {
+        const res = await API.get("/learner/");
+        const data = res.data as ReceivedValueType[];
+        dispatch(setValue(data));
+      };
+      get();
+    }
+  }, [exisitingLearnersData, dispatch]);
   return (
     <>
       <div className="hidden lg:flex items-center h-16 gap-8 w-full bg-secondaryBlue justify-center">
@@ -37,7 +53,7 @@ const Navbar = () => {
       </div>
       <div className="flex flex-col h-screen">
         <div className="h-20 w-full  bg-white flex justify-between">
-          <div className="relative flex-1 p-3 max-w-[1024px] mx-auto flex justify-between items-center h-full">
+          <div className="relative flex-1 p-3 max-w-[1200px] mx-auto flex justify-between items-center h-full">
             <NavLink to="/">
               <img
                 className="w-[250px] h-[70px]"

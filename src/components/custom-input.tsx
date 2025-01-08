@@ -8,8 +8,9 @@ interface CustomInputProps {
     email: string;
     password: string;
     institute?: string;
+    name?: string;
   }>;
-  name: "email" | "password" | "institute";
+  name: "email" | "password" | "institute" | "name";
   placeholder: string;
   Icon: LucideIcon;
   type: "password" | "email" | "text";

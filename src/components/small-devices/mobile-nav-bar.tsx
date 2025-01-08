@@ -49,9 +49,16 @@ const MobileNavBar = ({ data, links }: MobileNavBarProps) => {
           <MenuIcon />
         </SheetTrigger>
         <SheetContent className="w-[300px] sm:w-[540px] flex flex-col justify-start items-center ">
-          <div>{!isAuthorized() ? <SignInButton /> : <Profile />}</div>
+          <div>
+            {!isAuthorized() ? (
+              <SignInButton key={"signin"} />
+            ) : (
+              <Profile key={"profile"} />
+            )}
+          </div>
           <div className="h-[1px] bg-gray-200 w-full" />
           <div
+            // key={data[0].title}
             key={data[0].title}
             className="flex flex-col w-full  items-center z-40 gap-6 z-10]"
           >

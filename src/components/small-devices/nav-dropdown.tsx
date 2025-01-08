@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { cn } from "../../lib/utils";
 
 import {
@@ -23,10 +23,11 @@ interface NavDropDownProps {
 
 const NavDropDown = ({ isActive, title, data }: NavDropDownProps) => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   console.log(pathname == "");
 
   const onClick = (href: string) => {
-    window.location.href = href;
+    navigate(href);
   };
 
   const items = data?.map((item) => {

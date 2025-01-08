@@ -5,42 +5,57 @@ import { useState } from "react";
 import { cn } from "../lib/utils";
 
 interface QuestionCardProps {
+  questionId: string;
   question: string;
   code?: boolean;
   index: number;
   options: string[];
   ansIndex: number;
+  onClickOption: (
+    questionId: string,
+    ansIndex: number,
+    givenIndex: number
+  ) => void;
+  // explanation: string;
+  givenAnswer:
+    | {
+        questionId: string;
+        selectedOption: number;
+        ansIndex: number;
+      }
+    | undefined;
 }
 
 const QuestionCard = ({
   options,
-  index,
+  index: questionNumber,
   question,
   code = false,
   ansIndex,
+  questionId,
+  // explanation,
+  onClickOption,
+  givenAnswer,
 }: QuestionCardProps) => {
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(!!givenAnswer);
   const [clickedIndex, setClickedIndex] = useState<undefined | number>(
-    undefined
+    givenAnswer?.selectedOption && givenAnswer.selectedOption
   );
 
-  const onClick = (index: number) => {
+  const onClick = (
+    selectedOption: number,
+    ansIndex: number,
+    questionId: string
+  ) => {
     setClicked(true);
-    setClickedIndex(index);
+    setClickedIndex(selectedOption);
+    onClickOption(questionId, ansIndex, selectedOption);
   };
-
-  //   clicked
-  //   ? clickedIndex == index
-  //     ? index == ansIndex
-  //       ? "text-green-500"
-  //       : "text-red-500"
-  //     : ""
-  //   : ""
 
   return (
     <div>
       <div className="flex gap-2">
-        <p>{index}.</p>
+        <p>{questionNumber}.</p>
         {code ? (
           <SyntaxHighlighter style={docco}>{question}</SyntaxHighlighter>
         ) : (
@@ -54,18 +69,16 @@ const QuestionCard = ({
           {options.map((option, index) => (
             <div
               key={index}
-              className={cn(
-                "flex items-center w-fit gap-x-2 font-semibold",
-                clicked ? (ansIndex == index ? "text-green-500" : "") : "",
-                clicked &&
-                  clickedIndex == index &&
-                  ansIndex != index &&
-                  "text-red-500"
-              )}
+              className={cn("flex items-center w-fit gap-x-2 font-semibold")}
             >
               <RadioGroupItem
+                checked={
+                  givenAnswer
+                    ? givenAnswer.selectedOption == index
+                    : index == clickedIndex
+                }
                 disabled={clicked}
-                onClick={() => !clicked && onClick(index)}
+                onClick={() => !clicked && onClick(index, ansIndex, questionId)}
                 className={cn(
                   clicked ? (ansIndex == index ? "text-green-500" : "") : "",
                   clicked &&
@@ -75,7 +88,17 @@ const QuestionCard = ({
                 )}
                 value={option}
               />
-              <p>{option}</p>
+              <p
+                className={cn(
+                  clicked ? (ansIndex == index ? "text-green-500" : "") : "",
+                  clicked &&
+                    clickedIndex == index &&
+                    ansIndex != index &&
+                    "text-red-500"
+                )}
+              >
+                {option}
+              </p>
             </div>
           ))}
         </RadioGroup>

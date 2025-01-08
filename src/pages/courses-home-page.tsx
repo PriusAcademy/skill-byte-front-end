@@ -1,8 +1,18 @@
 import Container from "../components/container";
 import CourseCard from "../components/course-card";
-import { courseData } from "../data/course-data";
+import { CourseType } from "../types";
+import { useAppSelector } from "../app/hooks";
 
 const CoursesHomePage = () => {
+  const existingData = useAppSelector((state) => state.learner).value;
+  const coursesData =
+    existingData.find((item) => item.type == "students")?.majors ||
+    ([] as CourseType[]);
+
+  if (!existingData.length) {
+    return <div>LOADING</div>;
+  }
+
   return (
     <div>
       <div>
@@ -16,13 +26,17 @@ const CoursesHomePage = () => {
           Courses for Students
         </h1>
         <div className="flex flex-wrap flex-row  sm:justify-start justify-center gap-6 items-center w-full h-full">
-          {courseData.map((course) => (
+          {coursesData.map((course) => (
             <CourseCard
+              key={course.src}
               src={course.src}
-              href={course.href}
-              nCategories={course.nCategories}
-              nQuestions={course.nQuestions}
-              title={course.title}
+              href={`/courses/students/${course.name
+                .toLowerCase()
+                .split(" ")
+                .join("-")}&${course.id}`}
+              nCategories={20}
+              nQuestions={200}
+              title={course.name}
             />
           ))}
         </div>

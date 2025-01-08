@@ -12,6 +12,7 @@ const CampusDrivePage = () => {
           {campusDrive.map((item, index) => (
             <TitleCard
               major=""
+              id=""
               src={item.src}
               title={item.title}
               key={index}

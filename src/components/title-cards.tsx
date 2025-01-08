@@ -2,7 +2,7 @@ import TitleCard from "./title-card";
 
 interface TitleCardsProps {
   title: string;
-  content: { title: string; src: string }[];
+  content: { title: string; src: string; id: string }[];
 }
 
 const TitleCards = ({ title, content }: TitleCardsProps) => {
@@ -12,6 +12,7 @@ const TitleCards = ({ title, content }: TitleCardsProps) => {
       <div className="flex flex-wrap gap-2 perspective-500">
         {content.map((item) => (
           <TitleCard
+            id={item.id}
             title={item.title}
             major={title}
             src={item.src}

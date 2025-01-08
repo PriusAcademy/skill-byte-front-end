@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { cn } from "../lib/utils";
 
 interface LinkProps {
@@ -7,8 +8,9 @@ interface LinkProps {
 }
 
 const Link = ({ href, isActive, title }: LinkProps) => {
+  const navigate = useNavigate();
   const onClickHandle = () => {
-    window.location.href = href;
+    navigate(href);
   };
   return (
     <button

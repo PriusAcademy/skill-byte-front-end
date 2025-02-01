@@ -24,7 +24,10 @@ import { API } from "../../utils/connection";
 import { decryptData, encryptData } from "../../utils/utils";
 
 const TestingTestPage = () => {
-  const { testProgressId } = useParams() as { testProgressId: string };
+  const { testProgressId, subTopicId } = useParams() as {
+    testProgressId: string;
+    subTopicId: string;
+  };
   const [selectedOptions, setSelectedOptions] = useState<
     { questionId: string; option: string; isCorrect: boolean }[]
   >([]);
@@ -174,12 +177,15 @@ const TestingTestPage = () => {
       totalMarks: selectedOptions.filter((item) => item.isCorrect).length,
       totalQuestions: data.length,
       email: user.email,
+      subTopicId,
+      testProgressId,
+      // subTopicId : data
     });
     setShowModal(false);
     localStorage.removeItem("uZ8wGjS1oBv3YlX9F");
 
     blocker.state = "proceeding";
-    navigate("/");
+    // navigate("/");
   };
 
   return (
